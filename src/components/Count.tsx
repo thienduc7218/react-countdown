@@ -4,6 +4,7 @@ export const Count = () => {
     const [second, setSecond] = useState<number>(10)
     const [isCounting, setIsCounting] = useState<boolean>(false)
 
+
     useEffect(() => {
         if (isCounting && second > 0) {
             const interval = setInterval(() => {
@@ -13,6 +14,7 @@ export const Count = () => {
         }
         if (isCounting && second === 0) {
             setIsCounting(false)
+            setSecond(10)
         }
     }, [isCounting, second])
 
