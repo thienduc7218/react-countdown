@@ -1,36 +1,36 @@
 import { useEffect, useState } from "react"
 
 export const Count = () => {
-    const [second, setSecond] = useState<number>(10)
+    const [count, setCount] = useState<number>(10)
     const [isCounting, setIsCounting] = useState<boolean>(false)
 
-
     useEffect(() => {
-        if (isCounting && second > 0) {
-            const interval = setInterval(() => {
-                setSecond(prev => prev - 1)
+        if (isCounting && count > 0) {
+            const counting = setInterval(() => {
+                setCount(prev => prev - 1)
             }, 1000)
-            return () => clearInterval(interval)
+            return () => clearInterval(counting)
         }
-        if (isCounting && second === 0) {
+        if (isCounting && count === 0) {
             setIsCounting(false)
-            setSecond(10)
         }
-    }, [isCounting, second])
+    })
 
     const handleClick = () => {
         setIsCounting(!isCounting)
+        setCount(10)
     }
 
     return (
         <div className="card">
-            {second > 0 && isCounting ? (
-                <span className="countdown">{second}</span>
+            {(isCounting && count > 0) ? (
+                <h1>{count}</h1>
             ) : (
-                <button onClick={handleClick} disabled={isCounting}>
+                <button onClick={handleClick}>
                     Start Countdown
                 </button>
             )}
         </div>
     )
+
 }
