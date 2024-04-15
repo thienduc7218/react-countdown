@@ -3,8 +3,6 @@ import { useEffect, useState } from "react"
 export const Count = () => {
     const [second, setSecond] = useState<number>(10)
     const [isCounting, setIsCounting] = useState<boolean>(false)
-    console.log("🚀 ~ Count ~ second:", second)
-    console.log("🚀 ~ Count ~ isCounting:", isCounting)
 
     useEffect(() => {
         if (isCounting && second > 0) {
